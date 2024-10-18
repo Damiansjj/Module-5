@@ -3,6 +3,10 @@ import { stdin as input, stdout as output } from 'node:process';
 const userInput = readline.createInterface({ input, output });
 
 
+let jaartal = parseFloat(await userInput.question("Geef een jaartal: "));
+let maand = await userInput.question("Geef een maand: ");
+
+let dagen = DagenInMaand(jaartal, maand);
 function DagenInMaand(jaartal, maand) {
     switch (maand) {
         case "januari":
@@ -55,16 +59,5 @@ function DagenInMaand(jaartal, maand) {
             console.log("In het jaar " + jaartal + " heeft " + maand + " 31 dagen");
         break;
         default:
-            return -1; // Ongeldige maand
-    }
+            console.log("ongeldige keuze") }
 }
-
-let jaartal = parseFloat(await userInput.question("Geef een jaartal: "));
-let maand = await userInput.question("Geef een maand: ");
-
-let dagen = DagenInMaand(jaartal, maand);
-
-if (dagen === -1) {
-    console.log("Ongeldige keuze!");
-} 
-
